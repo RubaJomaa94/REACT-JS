@@ -11,17 +11,21 @@ class DatePickerComponent extends React.Component {
     super(props);
     this.ChildStartDate = moment();
     this.ChildEndDate = moment();
+
   }
 
-  changeStartDateFromChild(startDate)
+  changeStartDateFromChild = (startDate) =>
   {
-    this.props.fromDateToggle(this.ChildStartDate = startDate );
+    var childStartDate = startDate;
+    this.ChildStartDate = childStartDate;
+    this.props.fromDateToggle(startDate);
   }
 
-
-  chaCgeEndDateFromChild(endDate)
+  changeEndDateFromChild = (endDate) =>
   {
-    this.props.toDateToggle(this.ChildEndDate = endDate);
+    var childEndDate = endDate;
+    this.ChildEndDate = childEndDate;
+    this.props.fromDateToggle(endDate);
   }
 
   render() {
@@ -46,7 +50,8 @@ class DatePickerComponent extends React.Component {
         </div>
 
       </div>
-    );C  }
+    );
+  }
 }
 
 export default DatePickerComponent;

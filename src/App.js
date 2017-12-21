@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import DatePickerComponent from './components/FromDateComponent';
 import Subtract from './components/SubtractionComponent';
-import Result from './components/ResultComponent';
 
 //import images here
 import logo from './logo.svg';
@@ -21,15 +20,15 @@ class App extends Component {
       endDate : moment()
     };
     this.myCallBackForStartDate = this.myCallBackForStartDate.bind(this);
-    this.myCallBackForStartDate = this.myCallBackForStartDate.bind(this);
+    this.myCallBackForEndDate = this.myCallBackForEndDate.bind(this);
   }
 
   myCallBackForStartDate = (startDateFromDatePicker) => {
-    this.setState ({startDate: startDateFromDatePicker});
+    this.setState({startDate: startDateFromDatePicker});
   }
 
   myCallBackForEndDate = (endDateFromDatePicker) => {
-    this.setState ({endDate: endDateFromDatePicker });
+    this.setState({endDate: endDateFromDatePicker });
   }
 
   render() {
@@ -42,9 +41,8 @@ class App extends Component {
         <DatePickerComponent fromDateToggle= {this.myCallBackForStartDate} toDateToggle= {this.myCallBackForEndDate}/>
         </p>
         <p>
-          <Subtract fromDate={this.state.fromDate} endDate={this.state.endDate}/>
+          <Subtract fromDate={this.state.startDate} endDate={this.state.endDate}/>
         </p>
-        <Result />
       </div>
     );
   }
