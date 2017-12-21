@@ -10,7 +10,7 @@ class DatePickerComponent extends React.Component {
   constructor (props) {
     super(props);
     this.ChildStartDate = moment();
-    this.childEndDate = moment();
+    this.ChildEndDate = moment();
   }
 
   changeStartDateFromChild(startDate)
@@ -19,9 +19,9 @@ class DatePickerComponent extends React.Component {
   }
 
 
-  changeEndDateFromChild(endDate)
+  chaCgeEndDateFromChild(endDate)
   {
-    this.props.toDateToggle(this.childEndDate = endDate);
+    this.props.toDateToggle(this.ChildEndDate = endDate);
   }
 
   render() {
@@ -30,7 +30,7 @@ class DatePickerComponent extends React.Component {
         <div className="FromDate">
           <p>
             <DatePicker
-              selected={this.childStartDate}
+              selected={this.ChildStartDate}
               onChange={this.changeStartDateFromChild}
             />
           </p>
@@ -39,15 +39,14 @@ class DatePickerComponent extends React.Component {
         <div className="ToDate">
           <p>
             <DatePicker
-              selected={this.childEndDate}
+              selected={this.ChildEndDate}
               onChange={this.changeEndDateFromChild}
             />
           </p>
         </div>
 
       </div>
-    );
-  }
+    );C  }
 }
 
 export default DatePickerComponent;

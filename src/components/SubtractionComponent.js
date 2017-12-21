@@ -13,9 +13,13 @@ class Subtract extends Component
   }
   handleClick()
   {
-    if(this.props.startDate == null )
+    if(this.props.startDate == null || this.props.endDate == null)
     {
-      alert("please select the starting Date");
+      alert("please select Two Dates");
+    }
+    else
+    {
+      alert("the result is ");
     }
   }
   render()
