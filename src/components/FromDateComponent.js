@@ -1,42 +1,53 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import ToDate from './ToDateComponent';
 
 // import css files
 import 'react-datepicker/dist/react-datepicker.css';
-import './CSS/FromDateStyling.css';
+import '../CSS/FromDateStyling.css';
 
-class FromDate extends React.Component {
+class DatePickerComponent extends React.Component {
   constructor (props) {
-    super(props)
-    this.state = {
-      startDate: moment()
-    };
-    this.handleChange = this.handleChange.bind(this);
+    super(props);
+    this.ChildStartDate = moment();
+    this.childEndDate = moment();
   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date
-    });
+  changeStartDateFromChild(startDate)
+  {
+    this.props.fromDateToggle(this.ChildStartDate = startDate );
+  }
+
+
+  changeEndDateFromChild(endDate)
+  {
+    this.props.toDateToggle(this.childEndDate = endDate);
   }
 
   render() {
     return(
-      <div className="FromDate">
-        <p>
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-          />
-        </p>
-        <p>
-          End date: <ToDate />
-        </p>
+      <div className="DatePickerDiv">
+        <div className="FromDate">
+          <p>
+            <DatePicker
+              selected={this.childStartDate}
+              onChange={this.changeStartDateFromChild}
+            />
+          </p>
+        </div>
+
+        <div className="ToDate">
+          <p>
+            <DatePicker
+              selected={this.childEndDate}
+              onChange={this.changeEndDateFromChild}
+            />
+          </p>
+        </div>
+
       </div>
     );
   }
 }
 
-export default FromDate;
+export default DatePickerComponent;

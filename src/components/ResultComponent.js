@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //import css files here
-import './CSS/ResultStyling.css';
+import '../CSS/ResultStyling.css';
 
 
 class Result extends Component
