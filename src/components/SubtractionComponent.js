@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Result from './ResultComponent';
 import moment from 'moment';
 
 //import css files here
-import '../CSS/SubButtonStyling.css';
+import '../css/SubButtonStyling.css';
 
 class Subtract extends Component
 {
@@ -15,21 +14,26 @@ class Subtract extends Component
   }
   handleClick()
   {
-    if(this.props.fromDate == null || this.props.endDate == null )
+    var startDate = moment(this.props.fromDate).format("YYYY/MM/DD");
+    var endDate = moment(this.props.endDate).format("YYYY/MM/DD");
+    if(startDate == null || endDate == null )
     {
       alert("please select Both Dates");
     }
-    else if (this.props.fromDate == this.props.endDate)
+    else if (startDate == endDate)
     {
       alert("You Entered The Same Dates, Please Select Different Dates");
     }
     else
     {
-      var startDate = moment(this.props.fromDate);
-      var endDate = moment(this.props.endDate);
-
-      var numberOfDays = startDate.diff(endDate, 'days');
-
+      if (startDate > endDate)
+      {
+        var numberOfDays = moment(this.props.fromDate).diff(this.props.endDate, 'days');
+      }
+      else if (startDate < endDate)
+      {
+        var numberOfDays = moment(this.props.endDate).diff(this.props.fromDate, 'days');
+      }
       alert("the result is " + numberOfDays);
     }
   }
@@ -37,7 +41,7 @@ class Subtract extends Component
   {
     return (
       <div className="SubButton">
-        <button onClick={this.handleClick} > Subtract </button>
+        <button onClick={this.handleClick} > Subtract Dates </button>
       </div>
     );
   }

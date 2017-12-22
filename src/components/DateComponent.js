@@ -4,28 +4,28 @@ import moment from 'moment';
 
 // import css files
 import 'react-datepicker/dist/react-datepicker.css';
-import '../CSS/FromDateStyling.css';
+import '../css/DateComponentStyling.css';
 
 class DatePickerComponent extends React.Component {
   constructor (props) {
     super(props);
-    this.ChildStartDate = moment();
-    this.ChildEndDate = moment();
 
+    this.childStartDate = moment();
+    this.childEndDate = moment();
+    this.changeStartDateFromChild = this.changeStartDateFromChild.bind(this);
+    this.changeEndDateFromChild = this.changeEndDateFromChild.bind(this);
   }
 
   changeStartDateFromChild = (startDate) =>
   {
-    var childStartDate = startDate;
-    this.ChildStartDate = childStartDate;
-    this.props.fromDateToggle(startDate);
+    this.childStartDate = startDate;
+    this.props.fromDateToggle(this.childStartDate);
   }
 
   changeEndDateFromChild = (endDate) =>
   {
-    var childEndDate = endDate;
-    this.ChildEndDate = childEndDate;
-    this.props.fromDateToggle(endDate);
+    this.childEndDate = endDate;
+    this.props.toDateToggle(this.childEndDate);
   }
 
   render() {
@@ -34,7 +34,7 @@ class DatePickerComponent extends React.Component {
         <div className="FromDate">
           <p>
             <DatePicker
-              selected={this.ChildStartDate}
+              selected={this.childStartDate}
               onChange={this.changeStartDateFromChild}
             />
           </p>
@@ -43,12 +43,11 @@ class DatePickerComponent extends React.Component {
         <div className="ToDate">
           <p>
             <DatePicker
-              selected={this.ChildEndDate}
+              selected={this.childEndDate}
               onChange={this.changeEndDateFromChild}
             />
           </p>
         </div>
-
       </div>
     );
   }
