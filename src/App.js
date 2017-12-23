@@ -4,11 +4,9 @@ import moment from 'moment';
 import DatePickerComponent from './components/DateComponent';
 import Subtract from './components/SubtractionComponent';
 
-//import images here
-import logo from './logo.svg';
-
 //import css files here
 import './App.css';
+
 
 
 class App extends Component {
@@ -35,16 +33,19 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          Dates Subtractor
         </header>
         <p>
+        Select Two Dates and Find the Difference between them in days
+        <br/>
+        <br/>
         <DatePickerComponent
         fromDateToggle={this.CallBackForStartDate}
         toDateToggle= {this.CallBackForEndDate}
         startDateValue={this.state.startDate}
         endDateValue={this.state.endDate}
         />
-        
+
         </p>
         <p>
           <Subtract fromDate={this.state.startDate} endDate={this.state.endDate}/>

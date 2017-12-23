@@ -41,7 +41,7 @@ class Subtract extends Component
   {
     return (
       <div className="SubButton">
-        <button onClick={this.handleClick} > Subtract Dates </button>
+        <button className=".btn-primary" onClick={this.handleClick} > Find Difference </button>
       </div>
     );
   }

@@ -30,24 +30,24 @@ class DatePickerComponent extends React.Component {
 
   render() {
     return(
-      <div className="DatePickerDiv">
-        <div className="FromDate">
+      <div className="DatePickerDiv form-group">
           <p>
-            <DatePicker
+            <label className="fromDateLabel"> First Date: </label>
+             <DatePicker className="form-control"
               selected={this.childStartDate}
               onChange={this.changeStartDateFromChild}
+              className="FromDate"
             />
           </p>
-        </div>
 
-        <div className="ToDate">
           <p>
-            <DatePicker
+            <label> Second Date: </label>
+             <DatePicker
               selected={this.childEndDate}
               onChange={this.changeEndDateFromChild}
+              className="ToDate"
             />
           </p>
-        </div>
       </div>
     );
   }
